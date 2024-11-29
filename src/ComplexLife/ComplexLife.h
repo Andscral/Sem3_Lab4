@@ -3,14 +3,18 @@
 
 #include "ComplexNum/ComplexNum.h"
 #include <ctime>
+#include <string>
 
 class ComplexLife : public ComplexNums {
 
 public:
     ComplexLife(double _a, double _b);
+    ComplexLife(double _a);
     ComplexLife();
 
-    void getDate() const;
+    ComplexLife(const ComplexLife &obj);
+    string getDate() const;
+
 private:
     time_t date;
 };

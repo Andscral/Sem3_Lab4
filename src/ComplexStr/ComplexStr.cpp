@@ -1,33 +1,24 @@
 #include "ComplexStr/ComplexStr.h"
-#include <cmath>
 #include <iostream>
-#include <cstring>
 #include <sstream>
 
-ComplexStr::ComplexStr(const char* input) : ComplexNums(0, 0) {
-    strncpy(str, input, sizeof(str)); // Копируем строку
-    str[sizeof(str) - 1] = '\0'; // Обеспечиваем завершение строки
-    strToComplex(); // Преобразуем строку в комплексное число
+ComplexStr::ComplexStr(const string& str) : ComplexNums() { fromString(str); }
+ComplexStr::ComplexStr(double _a, double _b) : ComplexNums(_a, _b) { complexStr = toString(); }
+ComplexStr::ComplexStr(double _a) : ComplexNums(_a) { complexStr = toString(); }
+ComplexStr::ComplexStr() : ComplexNums() { complexStr = toString(); }
+
+string ComplexStr::toString() const {
+    ostringstream oss;
+    oss << getA() << (getB() >= 0 ? "+" : "") << getB() << "i";
+    return oss.str();
 }
 
-ComplexStr::ComplexStr(double _a, double _b) : ComplexNums(_a, _b) {}
-
-const char* ComplexStr::fromString() const {
-    return str;
-}
-
-ComplexNums ComplexStr::strToComplex() {
+void ComplexStr::fromString(const string& str) {
+    complexStr = str;
+    istringstream iss(str);
     double real, imag;
     char sign;
-
-    sscanf(str, "%lf %c %lf", &real, &sign, &imag);
+    iss >> real >> sign >> imag;
     setA(real);
     setB(sign == '+' ? imag : -imag);
-
-    return {getA(), getB()};
-}
-
-char* ComplexStr::complexToStr() {
-    snprintf(str, sizeof(str), "%0.1lf %c %0.1lfi", getA(), getB() >= 0 ? '+' : '-', fabs(getB()));
-    return str;
 }

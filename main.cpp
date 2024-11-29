@@ -1,3 +1,4 @@
+#include <iostream>
 #include "ComplexNum/ComplexNum.h"
 #include "ComplexStr/ComplexStr.h"
 #include "ComplexLife/ComplexLife.h"
@@ -5,20 +6,15 @@
 using namespace std;
 
 int main() {
-    ComplexNums complexNum(2, 3);
-    ComplexStr complexStr("2 + 3i");
-    ComplexLife complexLife(3, 4);
+    ComplexNums num1(2, 3);
+    cout << "ComplexNum: " << num1 << endl;
 
-    // Демонстрация создания
-    cout << "Complex Number: " << complexNum << endl;
-    cout << "Complex Number from C-style String: " << complexStr.strToComplex() << endl;
-    complexLife.getDate();
+    ComplexStr complexStr("5-2i");
+    cout << "ComplexStr: " << complexStr.toString() << endl;
 
-    // Копирование объектов
-    ComplexNums complexCopy = complexNum;
-    cout << "Copied Complex Number: " << complexCopy << endl;
-    ComplexNums complexCopy2 = complexStr;
-    cout << "Copied Complex string Number: " << complexCopy2 << endl;
+    ComplexLife complexLife(2, 3);
+    cout << "ComplexLife: " << complexLife << endl;
+    cout << "Creation Date: " << complexLife.getDate();
 
     return 0;
 }

@@ -2,18 +2,20 @@
 #define TEST_CATCH_COMPLEXSTR_H
 
 #include "ComplexNum/ComplexNum.h"
+#include <string>
 
 class ComplexStr : public ComplexNums {
 public:
-    ComplexStr(const char* str);
+    ComplexStr(const string& str);
     ComplexStr(double _a, double _b);
+    ComplexStr(double _a);
+    ComplexStr();
 
-    const char* fromString() const;
+    string toString() const;
+    void fromString(const string& str);
 
-    ComplexNums strToComplex();
-    char* complexToStr();
 private:
-    char str[100];
+    string complexStr;
 };
 
 

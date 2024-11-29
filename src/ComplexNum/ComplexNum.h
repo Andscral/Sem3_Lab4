@@ -27,11 +27,9 @@ public:
         return s;
     }
 
-    //3 лаба
     friend ostream& operator<< (ostream& os, const ComplexNums& num);
     friend istream& operator>> (istream& is, ComplexNums& num);
 
-//поменять стиль. Методы - глаголы.
 private:
     double a, b;
 };

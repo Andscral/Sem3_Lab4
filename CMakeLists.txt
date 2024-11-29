@@ -12,6 +12,15 @@ add_executable(Laba4 main.cpp src/ComplexNum/ComplexNum.cpp
         src/ComplexStr/ComplexStr.h
         src/ComplexLife/ComplexLife.cpp
         src/ComplexLife/ComplexLife.h
+)
+
+add_executable(Test_catch
         test-unit/catch.hpp
-        test-unit/test.cpp)
+        test-unit/test.cpp
+        src/ComplexNum/ComplexNum.cpp
+        src/ComplexNum/ComplexNum.h
+        src/ComplexStr/ComplexStr.cpp
+        src/ComplexStr/ComplexStr.h
+        src/ComplexLife/ComplexLife.cpp
+        src/ComplexLife/ComplexLife.h)
 
